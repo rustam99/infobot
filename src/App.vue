@@ -1,32 +1,66 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<div id="app" class="app">
+		<div class="container">
+			<h1 class="app__title">Стоп лист</h1>
+			<breadcrumbs :links="breadcrumbsLinks"/>
+		</div>
+		<router-view/>
+	</div>
 </template>
 
+<script>
+import breadcrumbs from '@/components/breadcrumbs';
+
+export default {
+	name: 'app',
+	data() {
+		return {
+			links: {
+				stopSheet: [{
+					name: 'home',
+					label: 'Главная',
+				}, {
+					name: 'stopSheet',
+					label: 'стоп-лист',
+				}],
+				home: [{
+					name: 'home',
+					label: 'Главная',
+				}],
+				addStopItem: [{
+					name: 'home',
+					label: 'Главная',
+				}, {
+					name: 'stopSheet',
+					label: 'стоп-лист',
+				}],
+				changeStopItem: [{
+					name: 'home',
+					label: 'Главная',
+				}, {
+					name: 'stopSheet',
+					label: 'стоп-лист',
+				}],
+			},
+		};
+	},
+	computed: {
+		breadcrumbsLinks() {
+			return this.links[this.$route.name];
+		},
+	},
+	components: {
+		breadcrumbs,
+	},
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+.app {
+	padding: 20px 0;
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+	&__title {
+		margin-top: 0;
+	}
 }
 </style>

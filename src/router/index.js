@@ -1,29 +1,39 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import stopSheet from '../views/stop_sheet';
+import home from '../views/home';
+import addStopItem from '../views/add_stop_item';
+import changeStopItem from '../views/change_stop_item';
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+	{
+		path: '/',
+		name: 'home',
+		component: home,
+	},
+	{
+		path: '/stopSheet/page/:page',
+		name: 'stopSheet',
+		component: stopSheet,
+	},
+	{
+		path: '/addStopItem',
+		name: 'addStopItem',
+		component: addStopItem,
+	},
+	{
+		path: '/changeStopItem/id/:id',
+		name: 'changeStopItem',
+		component: changeStopItem,
+	},
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes,
 });
 
 export default router;
