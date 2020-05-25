@@ -1,0 +1,31 @@
+.icon {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-image: url('../img/icons/icons.png');
+	background-repeat: no-repeat;
+
+	&_search {
+		background-position-x: 0;
+	}
+
+	&_delete {
+		background-position-x: -20px;
+	}
+
+	&_create {
+		background-position-x: -40px;
+	}
+
+	&_file {
+		background-position-x: -60px;
+	}
+
+	&_arrow_right {
+		background-position-x: -80px;
+	}
+
+	&_arrow_left {
+		background-position-x: -100px;
+	}
+}

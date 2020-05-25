@@ -1,0 +1,21 @@
+.input {
+	width: 100%;
+	padding: 5px 0;
+	border: 1px solid;
+	box-sizing: border-box;
+	color: $gray;
+	background-color: transparent;
+	outline: none;
+
+	&::placeholder {
+		color: $gray;
+	}
+
+	&_bordered {
+		&_bottom {
+			border-top-color: transparent;
+			border-right-color: transparent;
+			border-left-color: transparent;
+		}
+	}
+}
